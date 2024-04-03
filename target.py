@@ -22,10 +22,10 @@ driver.find_element(By.ID, 'search').send_keys('coffee')
 # click search button
 driver.find_element(By.XPATH, "//button[@data-test='@web/Search/SearchButton']").click()
 
+sleep(6)
+
 # verification
 actual_text = driver.find_element(By.XPATH, "//div[@data-test='resultsHeading']").text
-assert 'coffee111111' in actual_text, f'Error: Text coffee not in {actual_text}.'
-
-print('Test case passed.')
+assert 'coffee' in actual_text, f'Error! Text coffee not in {actual_text}'
 
 driver.quit()
