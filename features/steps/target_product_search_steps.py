@@ -37,3 +37,5 @@ def verify_header_links(context, expected_amount):
     links = context.driver.find_elements(*HEADER_LINKS)
     print(links)
     assert len(links) == expected_amount, f'Error! Expected {expected_amount} links but got {len(links)}.'
+
+

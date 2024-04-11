@@ -12,6 +12,8 @@ def open_page(context):
     sleep(6)
 
 
+
+
 @then('Verify there are {number} benefit boxes')
 def verify_boxes(context, number):
     number = int(number)
