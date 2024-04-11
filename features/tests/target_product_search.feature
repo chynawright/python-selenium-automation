@@ -5,7 +5,7 @@ Feature: Search Tests
   Scenario Outline: User can search for a product
     Given Open Target main page
     When Search for '<item>'
-    Then Verify search results are shown for <expected_item>
+    Then Verify search results are shown for <expected_item>git
     Examples:
     |item |expected_item  |
     |mug  |mug            |
