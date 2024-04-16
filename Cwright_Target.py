@@ -2,6 +2,8 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.support import expected_conditions as EC
+
 from time import sleep
 
 # get the path to the ChromeDriver executable
@@ -18,8 +20,7 @@ driver.get('https://www.target.com/')
 driver.find_element(By.XPATH, "//a[@aria-expanded='false' and @aria-label='Account, sign in' and @data-test='@web/AccountLink']").click()
 
 driver.find_element(By.XPATH, "//a[@data-test='accountNav-signIn']").click()
-
-sleep(5)
+sleep(4)
 
 
 actual_text = driver.find_element(By.XPATH, "//span[text()='Sign into your Target account']").text

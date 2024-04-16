@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.support.wait import WebDriverWait
 from time import sleep
 
 # get the path to the ChromeDriver executable
@@ -12,6 +13,8 @@ service = Service(driver_path)
 driver = webdriver.Chrome(service=service)
 driver.maximize_window()
 
+driver.wait = WebDriverWait(driver,timeout=10)
+
 # open the url
 driver.get('https://www.google.com/')
 
@@ -21,7 +24,6 @@ search.clear()
 search.send_keys('Table')
 
 # wait for 4 sec
-sleep(4)
 
 # click search button
 driver.find_element(By.NAME, 'btnK').click()

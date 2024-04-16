@@ -3,7 +3,7 @@ Feature: Add product to Target cart and verify
 
 
   Scenario Outline: Add to Target Cart
-    Given Open Target main page
+    Given Open main Target page
     When Search for '<item>'
     Then Verify search results are shown for <expected_item>
     And Add item to cart
@@ -13,6 +13,10 @@ Feature: Add product to Target cart and verify
 Examples:
     |item|expected_item|verified_item|
     |Tillamook Shredded Cheese|Tillamook Shredded Cheese|Tillamook|
+
+
+
+
 
 
 

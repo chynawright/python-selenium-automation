@@ -3,9 +3,9 @@ Feature: Search Tests
 
 
   Scenario Outline: User can search for a product
-    Given Open Target main page
+    Given Open main Target page
     When Search for '<item>'
-    Then Verify search results are shown for <expected_item>git
+    Then Verify search results are shown for <expected_item>
     Examples:
     |item |expected_item  |
     |mug  |mug            |
