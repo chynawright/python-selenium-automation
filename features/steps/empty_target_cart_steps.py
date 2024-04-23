@@ -8,7 +8,8 @@ CART_ICON = (By.CSS_SELECTOR, "a[data-test='@web/CartLink']")
 
 @given('Open main Target page')
 def open_page(context):
-    context.driver.get('https://www.target.com/')
+    # context.driver.get('https://www.target.com/')
+    context.app.main_page.open_main_page()
 
 @when('Click on cart icon')
 def click_on_icon(context):
