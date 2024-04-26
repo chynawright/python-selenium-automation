@@ -24,7 +24,7 @@ def verify_search_results(context, expected_item):
     # actual_text = context.driver.find_element(*SEARCH_RESULT_HEADER).text
     # assert expected_item in actual_text, f'Error! Text {expected_item} not in {actual_text}'
     # sleep(4)
-    context.app.search_results.verify_search_results(expected_item)
+    context.app.search_results_page.verify_search_results(expected_item)
 
 @then('Verify header in shown')
 def verify_header_shown(context):

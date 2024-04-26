@@ -3,8 +3,9 @@ from selenium.webdriver.support import expected_conditions as EC
 from behave import given, when, then
 from time import sleep
 
-CART_ICON = (By.CSS_SELECTOR, "a[data-test='@web/CartLink']")
 
+CART_ICON = (By.CSS_SELECTOR, "a[data-test='@web/CartLink']")
+CART_EMPTY_MSG = (By.CSS_SELECTOR, "h1[class*='StyledHeading']")
 
 @given('Open main Target page')
 def open_page(context):
@@ -21,5 +22,6 @@ def click_on_icon(context):
 
 @then("Verify 'Your cart is empty' message is shown")
 def verify_cart_is_empty(context):
-    text = context.driver.find_element(By.CSS_SELECTOR, "h1[class*='StyledHeading-sc']")
-    assert 'Your cart is empty' in text.text, f'Error! Text Your cart is empty not in {text}.'
+    # text = context.driver.find_element(By.CSS_SELECTOR, "h1[class*='StyledHeading-sc']")
+    # assert 'Your cart is empty' in text.text, f'Error! Text Your cart is empty not in {text}.'
+    context.app.cart_page.verify_cart_is_empty()
