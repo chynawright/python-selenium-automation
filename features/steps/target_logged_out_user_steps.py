@@ -23,6 +23,7 @@ def click_sign_in_nav(context):
     context.app.side_nav_page.click_sign_in_nav()
 
 
+
 @then('Verify sign in form is opened')
 def verify_sign_in_opened(context):
     text = context.driver.find_element(By.CSS_SELECTOR, "h1[class*='StyledHeading']")

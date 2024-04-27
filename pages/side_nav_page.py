@@ -10,8 +10,8 @@ class SideNavPage(Page):
     CART_CHECKOUT = (By.CSS_SELECTOR, "a[href='/cart']")
 
     def click_sign_in_nav(self):
-        self.wait_until_visible(*self.SIGN_IN_ELEMENT_2)
-        self.click(*self.SIGN_IN_ELEMENT_2)
+        self.wait_until_clickable_click(*self.SIGN_IN_ELEMENT_2)
+        # self.click(*self.SIGN_IN_ELEMENT_2)
 
     def add_item_side(self):
         self.click(*self.ADD_TO_CART_SIDE)

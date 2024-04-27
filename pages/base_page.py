@@ -9,6 +9,9 @@ class Page:
         self.driver = driver
         self.wait = WebDriverWait(self.driver, 10)
 
+    def open(self, url):
+        self.driver.get(url)
+
     def find_element(self, *locator):
         return self.driver.find_element(*locator)
 
@@ -43,15 +46,35 @@ class Page:
         actual_text = self.find_element(*locator).text
         assert actual_text == expected_text, f'Expected: {expected_text}, but got {actual_text}.'
 
+    def get_current_window(self):
+        current_window = self.driver.current_window_handle
+        print('Current window:', current_window)
+        return current_window
+
+    def switch_to_new_window(self):
+        self.wait.until(EC.new_window_is_opened)
+        all_windows = self.driver.window_handles
+        print('All windows', self.driver.window_handles)
+        print('Switched to new window:', all_windows[1])
+        self.driver.switch_to.window(all_windows[1])
+
+
+    def switch_window_by_id(self, window_id):
+        print('Switched to new window:', window_id)
+        self.driver.switch_to.window(window_id)
+
     def verify_partial_text(self, expected_text, *locator):
         actual_text = self.find_element(*locator).text
         assert actual_text in expected_text, f'Expected: {expected_text}, but got {actual_text}.'
 
     def verify_partial_url(self, expected_partial_url):
-        self.wait.until(EC.url_contains(expected_partial_url), f'Url does not contain {expected_partial_url}.')
+        self.wait.until(EC.url_contains(expected_partial_url), message=f'Url does not contain {expected_partial_url}')
 
     def verify_url(self, expected_url):
-       self.wait.until(EC.url_matches(expected_url), f'Url does not match {expected_url}.')
+        self.wait.until(EC.url_matches(expected_url), f'Url does not match {expected_url}.')
 
     def save_screenshot(self, name):
         self.driver.save_screenshot(f'{name}.png')
+
+    def close(self):
+        self.driver.close()
